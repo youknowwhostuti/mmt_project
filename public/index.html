@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make My Trip - My Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="background">
+    <div class="container">
+        <img class="logo" src="mmtLogoWhite.png">
+        <div class="data">
+            <div class="categories">
+                <span><i class="fa fa-plane"></i>Flights</span>
+                <span><i class="fa fa-hotel"></i>Hotels</span>
+                <span><i class="fa fa-home"></i>HomeStays Villas</span>
+                <span><i class="fa fa-shopping-bag"></i>Holiday Packages</span>
+                <span><i class="fa fa-train"></i>Train</span>
+                <span><i class="fa fa-bus"></i>Buses</span>
+                <span><i class="fa fa-car"></i>Cabs</span>
+                <span><i class="fa fa-tripadvisor"></i>Travel Insurance</span>
+            </div>
+            <div class="tickets">
+                <div class="ticketype">
+                    <span class="selected-ticketype"><input type="radio" name="trip-type">ONE WAY</span>
+                    <span><input type="radio" name="trip-type">ROUND TRIP</span>
+                    <span><input type="radio" name="trip-type">MULTI TRIP</span>
+                </div>
+
+                  
+                <form id="flight-search-form" action="/api/flights/search" method="post">
+                <div class="flightsearch">
+                    <div class="flight">
+                        <span><i class="fa fa-caret-down"></i>From</span>
+                        <h1>
+                            <select id="departure-menu" name="from">
+                                <option value="Delhi">Delhi</option>
+                                <option value="Agra">Agra</option>
+                                <option value="Pune">Pune</option>
+                                <option value="Jaipur">Jaipur</option>
+                            </select>
+                        </h1>
+                    </div>
+                    <div class="flight">
+                        <span><i class="fa fa-caret-down"></i>To</span>
+                        <h1>
+                            <select id="arrival-menu" name="to">
+                                <option value="Delhi">Delhi</option>
+                                <option value="Agra">Agra</option>
+                                <option value="Pune">Pune</option>
+                                <option value="Jaipur">Jaipur</option>
+                            </select>
+                        </h1>
+                    </div>
+                    <div class="flight">
+                        <span>Departure</span>
+                        <h1><input type="date" id="departure-date" name="departureDate"></h1>
+                    </div>
+                    <div class="flight">
+                        <span>Return</span>
+                        <h1><input type="date" id="return-date" name="returnDate"></h1>
+                        <span>Optional</span>
+                    </div>
+                    <div class="flight">
+                        <span>Traveler & Class</span>
+                        <select id="passenger-select" name="traveler">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                        <select id="passenger-class" name="passengerClass">
+                            <option value="Business">Business</option>
+                            <option value="Economy">Economy</option>
+                        </select>
+                        <span>Happy Flying!</span>
+                    </div>
+                </div>
+                <div class="faresearch">
+                    <span class="fareselect">Select a fare type</span>
+                </div>
+                <div class="faretype">
+                    <span class="selected-faretype"><input type="radio" name="passengertype">Regular Fares</span>
+                    <span><input type="radio" name="passengertype">Armed Forces</span>
+                    <span><input type="radio" name="passengertype">Doctors & Nurses</span>
+                    <span><input type="radio" name="passengertype">Senior Citizens</span>
+                    <span><input type="radio" name="passengertype">xyz</span>
+                </div>
+
+                <div class="searchbutton">
+                    <form id="flight-search-form" action="searchresults.html" method="post">
+                        <button type="submit">Search Flights</button>
+                    </form>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

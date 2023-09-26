@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <header class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <h1 class="display-4">Flight Search Results</h1>
+                    <p class="lead">From: Location 1 &emsp; To: Location 2 &emsp; Departure Date: 2023-09-01 &emsp; Return: 2023-09-01</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container mt-4">
+        <div id="flight-results-container" class="table-responsive"></div>
+        <div class="confirm-button text-center">
+            <a class="btn btn-primary" href="thankyou.html">Confirm and Pay</a>
+        </div>
+    </div>
+    <script>
+
+        fetch('/api/flights/search')
+            .then(response => response.json())
+            .then(data => {
+                displayFlightResults(data);
+            })
+            .catch(error => {
+                console.error('Error fetching flight search results:', error);
+            });
+
+        function createFlightRow(flight) {
+            const row = document.createElement('tr');
+            row.classList.add('flight-row');
+
+            const selectCell = document.createElement('td');
+            const selectInput = document.createElement('input');
+            selectInput.type = 'radio';
+            selectInput.name = 'flight-selection';
+            selectCell.appendChild(selectInput);
+            row.appendChild(selectCell);
+
+            const airlineCell = document.createElement('td');
+            airlineCell.textContent = flight.airline;
+            row.appendChild(airlineCell);
+
+            const classCell = document.createElement('td');
+            classCell.textContent = flight.passengerClass;
+            row.appendChild(classCell);
+
+            const priceCell = document.createElement('td');
+            priceCell.textContent = flight.price + ' Rs.';
+            row.appendChild(priceCell);
+
+            return row;
+        }
+
+        function displayFlightResults(results) {
+            const resultsContainer = document.getElementById('flight-results-container');
+            const table = document.createElement('table');
+            table.classList.add('table', 'flight-table');
+
+            const thead = document.createElement('thead');
+            thead.innerHTML = `
+                <tr>
+                    <th></th>
+                    <th>Flight</th>
+                    <th>Class</th>
+                    <th>Price (in Rs.)</th>
+                </tr>
+            `;
+            table.appendChild(thead);
+            
+            const tbody = document.createElement('tbody');
+            results.forEach((flight) => {
+                const flightRow = createFlightRow(flight);
+                tbody.appendChild(flightRow);
+            });
+            table.appendChild(tbody);
+
+            resultsContainer.appendChild(table);
+        }
+    </script>
+</body>
+</html>

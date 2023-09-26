@@ -1,0 +1,211 @@
+body {
+    font-family: Lato;
+    color: rgb(80, 79, 79);
+}
+
+.background {
+    background: rgb(87, 90, 240);
+    background: no-repeat;
+    background-image: linear-gradient(to bottom, black, rgb(68, 68, 223));
+    background-size: 100% 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 1200px;
+}
+
+.logo {
+    height: 36px;
+    width: 113px;
+}
+
+.data {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.categories {
+    background-color: white;
+    width: 950px;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 10px 11px 10px rgb(241, 125, 125);
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 2;
+}
+
+.categories span {
+    font-size: 14px;
+    padding: 10px;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fa {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.tickets {
+    background-color: rgb(255, 255, 255);
+    width: 1200px;
+    height: 300px;
+    position: absolute;
+    top: 60px;
+    z-index: 1;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.ticketype {
+    margin-top: 80px;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.ticketype span {
+    padding: 5px;
+}
+
+.ticketype span i {
+    font-size: 14px;
+}
+
+.selected-ticketype {
+    background-color: rgb(209, 207, 207);
+    border-radius: 30px;
+}
+
+.flightsearch {
+    border: 1px solid rgb(83, 82, 82);
+    display: flex;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.flight {
+    margin: 15px;
+    color: rgb(29, 28, 28);
+    width: 300px;
+    border-right: 1px solid rgb(211, 206, 206);
+}
+
+.flight h1 {
+    margin: 3px;
+    opacity: 0.5;
+}
+
+.dropdown-menu-1 {
+    display: none;
+}
+
+.dropdown-menu-1 {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1;
+}
+
+.flight:hover .dropdown-menu-1 {
+    display: block;
+}
+
+.dropdown-menu-1 ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu-1 li {
+    margin-bottom: 5px;
+}
+
+.dropdown-menu-1 a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px;
+}
+
+.dropdown-menu-1 a:hover {
+    background-color: #f0f0f0;
+}
+
+.flight input[type="date"] {
+    width: 80%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#passenger-select {
+    padding: 5px;
+    margin-right: 10px;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#passenger-select::after {
+    content: "\25BC";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+#passenger-select:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.faresearch {
+    margin-top: 30px;
+    font-size: 13px;
+    display: flex;
+}
+
+.fareselect {
+    width: 80px;
+    display: flex;
+}
+
+.selected-faretype i {
+    font-size: 14px;
+    color: rgb(134, 134, 202);
+}
+
+.faretype {
+    color: rgb(158, 156, 156);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.searchbutton button {
+    color: white;
+    font-size: 20px;
+    font-family: Lato;
+    border-radius: 30px;
+    width: 200px;
+    height: 44px;
+    background-image: linear-gradient(to bottom, rgb(53, 55, 156), rgb(129, 129, 201));
+    padding-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 42%;
+}
+
